@@ -9,8 +9,8 @@
 
 # ------ Define user parameters ------ #
 
-input_path = "C:\\Users\\gabim\\Documents\\Master\\Stalicla\\Work\\Repos\\Clustering-PTV\\Part_II\\Data\\binary-matrix-2019-08-23_13???08???35.csv"
-output_folder = "C:\\Users\\gabim\\Documents\\Master\\Stalicla\\Work\\Repos\\Clustering-PTV\\Part_III\\Results\\Hierarchical\\"
+input_path = "~//data//raw//binary-matrix-2019-08-23_PTV.csv"
+output_folder = "~//reports//Hierarchical//"
 
 patients_clust = "PTV-agglomhc-patients.csv"
 pathways_clust = "PTV-agglomhc-pathways.csv"
@@ -39,7 +39,7 @@ pathways_dengrogram_info = glue(output_folder, pathways_dengrogram_info)
 patients = read.csv(input_path, header=TRUE, sep=",", skip = 1, row.names = 1)
 
 # Drop features with only 0s or 1s
-patients <- df[, colSums(df != 0) > 0]
+patients <- patients[, colSums(patients != 0) > 0]
 
 
 #----- Similarity matrix for patients -----#

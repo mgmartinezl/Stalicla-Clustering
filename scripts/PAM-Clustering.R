@@ -8,8 +8,8 @@
 
 # ------ Define user parameters ------ #
 
-input_path = "C:\\Users\\gabim\\Documents\\Master\\Stalicla\\Work\\Repos\\Clustering-PTV\\Part_II\\Data\\binary-matrix-2019-08-23_13???08???35.csv"
-output_folder = "C:\\Users\\gabim\\Documents\\Master\\Stalicla\\Work\\Repos\\Clustering-PTV\\Part_III\\Results\\PAM\\"
+input_path = "~//data//raw//binary-matrix-2019-08-23_PTV.csv"
+output_folder = "~//reports//PAM//"
 
 patients_clust = "PTV-PAM-patients.csv"
 PAM_clust = "PTV-PAM-patients.png"
@@ -33,7 +33,7 @@ silhouette_val = glue(output_folder, silhouette_val)
 patients = read.csv(input_path, header=TRUE, sep=",", skip = 1, row.names = 1)
 
 # Drop features with only 0s or 1s
-patients <- df[, colSums(df != 0) > 0]
+patients <- patients[, colSums(patients != 0) > 0]
 
 
 #----- Logistic PCA ------#
