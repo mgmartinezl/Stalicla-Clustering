@@ -1,16 +1,16 @@
-# Clustering PTV patients
+# Clustering ASD patients and pathways with hierarchical agglomerative methods
 
 # Author: Gabriela Martinez
 # airamgabriela17@gmail.com
 
-# The input dataset for this exercise is the binary matrix generated
-# from the PBPM protocol. In this particular run, only PTV patients
-# were considered.
+# The input dataset for this exercise is the binary matrix generated from the PBPM protocol. 
 
-# ------ Define parameters ------ #
+# This script only runs agglomerative hierarchical techniques for clustering.
+
+# ------ Define user parameters ------ #
 
 input_path = "C:\\Users\\gabim\\Documents\\Master\\Stalicla\\Work\\Repos\\Clustering-PTV\\Part_II\\Data\\binary-matrix-2019-08-23_13???08???35.csv"
-output_folder = "C:\\Users\\gabim\\Documents\\Master\\Stalicla\\Work\\Repos\\Clustering-PTV\\Part_III\\Results\\"
+output_folder = "C:\\Users\\gabim\\Documents\\Master\\Stalicla\\Work\\Repos\\Clustering-PTV\\Part_III\\Results\\Hierarchical\\"
 
 patients_clust = "PTV-agglomhc-patients.csv"
 pathways_clust = "PTV-agglomhc-pathways.csv"
@@ -65,7 +65,7 @@ save_plot(patients_dengrogram, patients.clustering.dendro)
 patients.clusters <- cutree(patients.clustering, k=min_clusters_patients:max_clusters_patients)
 patients.clusters <- data.frame(patients.clusters)
 
-# Extract the height of patients in the dendrogram
+# Extract the labels and the height of patients in the dendrogram
 patients.dendro.labels <- patients.clustering$label[patients.clustering$order]
 patients.dendro.height <- patients.clustering$height[patients.clustering$order]
 patients.dendro.summary <- data.frame(cbind(patients.dendro.labels, patients.dendro.height))
@@ -83,6 +83,7 @@ setnames(patients.clusters,paste0(names(patients.clusters),"_clusters"))
 # Export results to a csv
 write.csv(patients.clusters, file = patients_clust, row.names = TRUE)
 write.csv(patients.dendro.summary, file = patients_dengrogram_info, row.names = FALSE)
+
 
 #----- Similarity matrix for pathways -----#
 
@@ -111,7 +112,7 @@ save_plot(pathways_dengrogram, pathways.clustering.dendro)
 pathways.clusters <- cutree(pathways.clustering, k=min_clusters_pathways:max_clusters_pathways)
 pathways.clusters <- data.frame(pathways.clusters)
 
-# Extract the height of pathways in the dendrogram
+# Extract the labels and the height of pathways in the dendrogram
 pathways.dendro.labels <- pathways.clustering$label[pathways.clustering$order]
 pathways.dendro.height <- pathways.clustering$height[pathways.clustering$order]
 pathways.dendro.summary <- data.frame(cbind(pathways.dendro.labels, pathways.dendro.height))
