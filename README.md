@@ -23,6 +23,27 @@ Project Organization
 
 Description
 ------------
-Although originally tested on PTV patients, this repository can be used on other natures of datasets that share the same input data format. However, it is worth to note that clustering tasks cannot be automated on different behaviors, so close supervision is recommended before generalizing conclusions.
+Although originally tested on PTV patients, this repository can be used on other natures of datasets that share the same input data format. However, it is worth to note that clustering tasks cannot be automated on different datasets that are not expected to have the same behavior, so close supervision is recommended before generalizing conclusions.
 
+The folder *scripts* contains  four scripts to run the following unsupervised clustering methods:
+
+* Agglomerative hierarchical clustering.
+* K-Means on PCA.
+* PAM (K-Medoids) on PCA.
+* Latent Class Analysis (LCA).
+
+These scripts contain user parameters that need to be adjusted to run the program.
+
+The folder *analysis* contains one folder where the results of each of the above methods are stored. These results gather csv files that relate each patient to its corresponding cluster and also some graphics.
+
+In particular, results and conclusions from hierarchical clustering can be also explored and understood [here](https://github.com/mgmartinezl/Stalicla-Clustering/blob/master/references/2019_09_06_Clustering_PTV_Patients_v01.00.pdf).
+
+***
+<p><small>
+For any additional information, contact me :bowtie: 
+
+*Gabriela Martinez* <br>
+*airamgabriela17@gmail.com*
+</small></p>
+***
 
